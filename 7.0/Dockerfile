@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-RUN apt-get update && apt-get install -y ca-certificates apt-transport-https wget gnupg \
+RUN apt-get update && apt-get install -y ca-certificates apt-transport-https wget gnupg git \
     && wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add - \
     && echo "deb https://packages.sury.org/php/ stretch main" | tee /etc/apt/sources.list.d/php.list \
     && apt-get update
