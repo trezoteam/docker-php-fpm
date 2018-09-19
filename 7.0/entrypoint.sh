@@ -7,6 +7,11 @@ if [ "$SLOW_LOG" == "true" ]; then
     done
 fi
 
+if set | grep PROJECT_ROOT ; then
+    cd $PROJECT_ROOT
+    composer install &
+fi
+
 if php-fpm7.0 -t ; then
     exec php-fpm7.0 --nodaemonize --fpm-config /etc/php/7.0/fpm/php-fpm.conf
 else
