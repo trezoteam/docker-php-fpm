@@ -3,9 +3,8 @@ FROM debian:stretch-slim
 RUN apt-get update && apt-get install -y ca-certificates apt-transport-https wget gnupg git \
     && wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add - \
     && echo "deb https://packages.sury.org/php/ stretch main" | tee /etc/apt/sources.list.d/php.list \
-    && apt-get update
-
-RUN apt-get install -y php5.6 php5.6-common php5.6-cli php5.6-fpm php5.6-opcache php5.6-xml php5.6-ctype php5.6-ftp php5.6-gd php5.6-json php5.6-posix php5.6-curl php5.6-dom php5.6-pdo php5.6-sockets php5.6-zip php5.6-mcrypt php5.6-mysql php5.6-mysqli php5.6-sqlite3 php5.6-bz2 php5.6-exif php5.6-phar php5.6-posix php5.6-calendar php5.6-iconv php5.6-imap php5.6-soap php5.6-xsl php5.6-ldap php5.6-bcmath php5.6-redis php5.6-memcache php5.6-memcached php5.6-imagick php5.6-intl php5.6-json php5.6-mcrypt php5.6-mysqli php5.6-readline php5.6-xmlrpc php5.6-xsl php5.6-mbstring php5.6-gmp php5.6-recode php5.6-dev php5.6-tidy 
+    && apt-get update \
+    && apt-get install -y php5.6 php5.6 php5.6-common php5.6-cli php5.6-fpm php5.6-opcache php5.6-xml php5.6-ctype php5.6-ftp php5.6-gd php5.6-json php5.6-posix php5.6-curl php5.6-dom php5.6-pdo php5.6-sockets php5.6-zip php5.6-mcrypt php5.6-mysql php5.6-mysqli php5.6-sqlite3 php5.6-bz2 php5.6-exif php5.6-phar php5.6-posix php5.6-calendar php5.6-iconv php5.6-imap php5.6-soap php5.6-xsl php5.6-ldap php5.6-bcmath php5.6-redis php5.6-memcache php5.6-memcached php5.6-imagick php5.6-intl php5.6-json php5.6-mcrypt php5.6-mysqli php5.6-readline php5.6-xmlrpc php5.6-xsl php5.6-mbstring php5.6-gmp php5.6-recode php5.6-dev php5.6-tidy php5.6-xdebug
 
 RUN apt-get install -y php-symfony-class-loader php-pear php-tcpdf phpqrcode php-html-safe php-php-gettext php-gettext php-geoip php-oauth php-mail
 
