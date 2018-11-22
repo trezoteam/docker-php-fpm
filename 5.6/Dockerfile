@@ -8,6 +8,9 @@ RUN apt-get update && apt-get install -y ca-certificates apt-transport-https wge
 
 RUN apt-get install -y php-symfony-class-loader php-pear php-tcpdf phpqrcode php-html-safe php-php-gettext php-gettext php-geoip php-oauth php-mail
 
+RUN pecl install pecl/lzf \
+    && echo "extension=lzf.so" > /etc/php/5.6/fpm/conf.d/lzf.ini
+
 RUN rm /etc/php/5.6/fpm/pool.d/* \
     && mkdir -p /var/run/php-fpm \
     && mkdir -p /var/log/php-fpm \

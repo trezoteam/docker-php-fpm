@@ -9,6 +9,8 @@ RUN apt-get install -y php7.0 php7.0-common php7.0-cli php7.0-fpm php7.0-opcache
 
 RUN apt-get install -y php-symfony-class-loader php-pear php-tcpdf phpqrcode php-html-safe php-php-gettext php-gettext php-geoip php-oauth php-mail
 
+RUN pecl install pecl/lzf \
+    && echo "extension=lzf.so" > /etc/php/7.0/fpm/conf.d/lzf.ini
 
 RUN rm /etc/php/7.0/fpm/pool.d/* \
     && mkdir -p /var/run/php-fpm \
