@@ -18,6 +18,13 @@ RUN rm /etc/php/7.0/fpm/pool.d/* \
     && mkdir -p /var/log/php-fpm \
     && mkdir -p /run/php
 
+RUN wget https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz \
+    && tar -xvf ioncube_loaders_lin_x86-64.tar.gz \
+    && cp ioncube/ioncube_loader_lin_7.0.so $(php -i | grep ^extension_dir | cut -d' ' -f3) \
+    && echo "zend_extension = $(php -i | grep ^extension_dir | cut -d' ' -f3)/ioncube_loader_lin_7.0.so" > /etc/php/7.0/fpm/conf.d/00-ioncube.ini \
+    && echo "zend_extension = $(php -i | grep ^extension_dir | cut -d' ' -f3)/ioncube_loader_lin_7.0.so" > /etc/php/7.0/cli/conf.d/00-ioncube.ini \
+    && rm -Rf /ioncube*
+
 RUN wget https://files.magerun.net/n98-magerun.phar && chmod +x n98-magerun.phar && mv n98-magerun.phar /bin/n98-magerun \
     && wget https://files.magerun.net/n98-magerun2.phar && chmod +x n98-magerun2.phar && mv n98-magerun2.phar /bin/n98-magerun2
 
