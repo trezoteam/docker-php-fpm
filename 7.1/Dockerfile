@@ -11,7 +11,7 @@ RUN apt-get install -y php-symfony-class-loader php-pear php-tcpdf phpqrcode php
 
 RUN pecl install pecl/lzf \
     && echo "extension=lzf.so" > /etc/php/7.1/fpm/conf.d/lzf.ini \
-    && echo "extension=lzf.so" > /etc/php/7.0/cli/conf.d/lzf.ini
+    && echo "extension=lzf.so" > /etc/php/7.1/cli/conf.d/lzf.ini
 
 RUN rm /etc/php/7.1/fpm/pool.d/* \
     && mkdir -p /var/run/php-fpm \
