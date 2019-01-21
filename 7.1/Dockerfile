@@ -32,6 +32,8 @@ COPY config/pools/* /etc/php/7.1/fpm/pool.d/
 COPY config/php.ini /etc/php/7.1/fpm/php.ini
 COPY entrypoint.sh /entrypoint.sh
 
+RUN useradd deploy -s /bin/bash -g www-data -u 2500
+
 RUN apt-get purge -y wget gnupg \
     && rm -Rf /var/cache/*
 
