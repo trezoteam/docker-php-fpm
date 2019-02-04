@@ -34,5 +34,7 @@ COPY entrypoint.sh /entrypoint.sh
 RUN apt-get purge -y wget gnupg \
     && rm -Rf /var/cache/*
 
+RUN groupadd http_group && useradd http_user -g http_group
+
 CMD ["/entrypoint.sh"]
 
