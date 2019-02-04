@@ -41,7 +41,7 @@ COPY entrypoint.sh /entrypoint.sh
 
 RUN useradd deploy -s /bin/bash -g www-data -u 2500
 
-RUN groupadd http_group && useradd http_user -g http_group
+RUN groupadd http_group && useradd -m http_user -g http_group
 
 RUN apt-get purge -y wget gnupg \
     && rm -Rf /var/cache/*
