@@ -8,6 +8,18 @@ if [ "$SLOW_LOG" == "true" ]; then
     done
 fi
 
+if set | grep XDEBUG_REMOTE_HOST ; then
+    echo "
+zend_extension=xdebug.so
+[Xdebug]
+xdebug.remote_host=${XDEBUG_REMOTE_HOST}
+xdebug.remote_enable=true
+xdebug.remote_port=9005
+xdebug.max_nesting_level=200
+xdebug.idekey=ide
+xdebug.remote_log=/var/log/php-fpm/xdebug.log
+" > /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+fi
 
 if set | grep PROJECT_ROOT ; then
     outsider_uid=$(ls -l $PROJECT_ROOT/composer.json | cut -f 3 -d ' ')
