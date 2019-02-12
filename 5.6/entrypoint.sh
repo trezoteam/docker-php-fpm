@@ -14,9 +14,9 @@ zend_extension=xdebug.so
 [Xdebug]
 xdebug.remote_host=${XDEBUG_REMOTE_HOST}
 xdebug.remote_enable=true
-xdebug.remote_port=9005
+xdebug.remote_port=9000
 xdebug.max_nesting_level=200
-xdebug.idekey=ide
+xdebug.remote_autostart = 1
 xdebug.remote_log=/var/log/php-fpm/xdebug.log
 " > /etc/php/5.6/fpm/conf.d/20-xdebug.ini
 fi
