@@ -22,8 +22,9 @@ xdebug.remote_log=/var/log/php-fpm/xdebug.log
 fi
 
 if set | grep PROJECT_ROOT ; then
-    outsider_uid=$(ls -l $PROJECT_ROOT/composer.json | cut -f 3 -d ' ')
-    outsider_gid=$(ls -l $PROJECT_ROOT/composer.json | cut -f 4 -d ' ')
+    file=$(find $PROJECT_ROOT -maxdepth 1 -type f | head -n1)
+    outsider_uid=$(ls -l $file | cut -f 3 -d ' ')
+    outsider_gid=$(ls -l $file | cut -f 4 -d ' ')
 
     if [[ $outsider_uid =~ ^[0-9]*$ ]]; then
         usermod http_user -u $outsider_uid
