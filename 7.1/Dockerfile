@@ -37,7 +37,9 @@ RUN useradd deploy -s /bin/bash -g www-data -u 2500
 RUN apt-get purge -y wget gnupg \
     && rm -Rf /var/cache/*
 
-RUN groupadd http_group && useradd -m http_user -g http_group
+RUN groupadd http_group && useradd -s /bin/bash -m http_user -g http_group
+
+RUN echo 'su http_user' >> /root/.bashrc
 
 CMD ["/entrypoint.sh"]
 
