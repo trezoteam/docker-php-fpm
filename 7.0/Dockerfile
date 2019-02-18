@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y ca-certificates apt-transport-https wge
 
 RUN apt-get install -y php7.0 php7.0-common php7.0-cli php7.0-fpm php7.0-opcache php7.0-xml php7.0-ctype php7.0-ftp php7.0-gd php7.0-json php7.0-posix php7.0-curl php7.0-dom php7.0-pdo php7.0-sockets php7.0-zip php7.0-mcrypt php7.0-mysql php7.0-mysqli php7.0-sqlite3 php7.0-bz2 php7.0-exif php7.0-phar php7.0-posix php7.0-calendar php7.0-iconv php7.0-imap php7.0-soap php7.0-xsl php7.0-ldap php7.0-bcmath php7.0-redis php7.0-memcache php7.0-memcached php7.0-imagick php7.0-intl php7.0-json php7.0-mcrypt php7.0-mysqli php7.0-readline php7.0-xmlrpc php7.0-xsl php7.0-mbstring php7.0-gmp php7.0-recode php7.0-dev php7.0-tidy php7.0-xdebug
 
-RUN apt-get install php7.0-sybase freetds-bin freetds-common
+RUN apt-get install php7.0-sybase freetds-bin freetds-common -y
 
 RUN apt-get install -y php-symfony-class-loader php-pear php-tcpdf phpqrcode php-html-safe php-php-gettext php-gettext php-geoip php-oauth php-mail
 
