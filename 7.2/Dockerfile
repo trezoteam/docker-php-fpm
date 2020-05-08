@@ -23,6 +23,15 @@ RUN rm /etc/php/7.2/fpm/pool.d/* \
     && mkdir -p /var/log/php-fpm \
     && mkdir -p /run/php
 
+# ioncube loader module
+RUN cd /tmp \
+	&& curl -o ioncube.tar.gz http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz \
+    && tar -xvvzf ioncube.tar.gz \
+    && mv ioncube/ioncube_loader_lin_7.2.so /usr/lib/php/20170718/ \
+    && rm -Rf ioncube.tar.gz ioncube \
+    && echo "zend_extension=/usr/lib/php/20170718/ioncube_loader_lin_7.2.so" >> /etc/php/7.2/fpm/php.ini \
+    && echo "zend_extension=/usr/lib/php/20170718/ioncube_loader_lin_7.2.so" >> ./etc/php/7.2/cli/php.ini
+
 RUN wget https://files.magerun.net/n98-magerun.phar && chmod +x n98-magerun.phar && mv n98-magerun.phar /bin/n98-magerun \
     && wget https://files.magerun.net/n98-magerun2.phar && chmod +x n98-magerun2.phar && mv n98-magerun2.phar /bin/n98-magerun2
 
