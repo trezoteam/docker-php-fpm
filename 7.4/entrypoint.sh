@@ -2,8 +2,8 @@
 set -x
 if [ "$SLOW_LOG" == "true" ]; then
     SLOW_LOG_TIMEOUT=${SLOW_LOG_TIMEOUT:-10}
-    for file in /etc/php/7.3/fpm/pool.d/* ; do
-        echo "slowlog = /var/log/php-fpm/php7.3-slow.log" >> $file
+    for file in /etc/php/7.4/fpm/pool.d/* ; do
+        echo "slowlog = /var/log/php-fpm/php7.4-slow.log" >> $file
         echo "request_slowlog_timeout = ${SLOW_LOG_TIMEOUT}" >> $file
     done
 fi
@@ -18,7 +18,7 @@ xdebug.remote_port=9000
 xdebug.max_nesting_level=5000
 xdebug.remote_autostart = 1
 xdebug.remote_log=/var/log/php-fpm/xdebug.log
-" > /etc/php/7.3/fpm/conf.d/20-xdebug.ini
+" > /etc/php/7.4/fpm/conf.d/20-xdebug.ini
 fi
 
 if set | grep PROJECT_ROOT ; then
@@ -38,9 +38,9 @@ if set | grep PROJECT_ROOT ; then
     su http_user -c 'composer install' &
 fi
 set +x
-if php-fpm7.3 -t ; then
-    exec php-fpm7.3 --nodaemonize --fpm-config /etc/php/7.3/fpm/php-fpm.conf
+if php-fpm7.4 -t ; then
+    exec php-fpm7.4 --nodaemonize --fpm-config /etc/php/7.4/fpm/php-fpm.conf
 else
-    echo "php-fpm7.3 config test failed, recheck it"
+    echo "php-fpm7.4 config test failed, recheck it"
 fi
 
