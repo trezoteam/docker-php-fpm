@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y wget curl ca-certificates apt-transport
     && echo "deb https://packages.sury.org/php/ buster main" | tee /etc/apt/sources.list.d/php.list \
     && apt-get update
 
-RUN apt-get install -y php7.4 php7.4-common php7.4-cli php7.4-fpm php7.4-opcache php7.4-xml php7.4-ctype php7.4-ftp php7.4-gd php7.4-json php7.4-posix php7.4-curl php7.4-dom php7.4-pdo php7.4-sockets php7.4-zip php7.4-mysql php7.4-mysqli php7.4-sqlite3 php7.4-bz2 php7.4-exif php7.4-phar php7.4-posix php7.4-calendar php7.4-iconv php7.4-imap php7.4-soap php7.4-xsl php7.4-ldap php7.4-bcmath php7.4-redis php7.4-memcache php7.4-memcached php7.4-imagick php7.4-intl php7.4-json php7.4-mysqli php7.4-readline php7.4-xmlrpc php7.4-xsl php7.4-mbstring php7.4-gmp php7.4-recode php7.4-dev php7.4-tidy php7.4-xdebug
+RUN apt-get install -y php7.4 php7.4-common php7.4-cli php7.4-fpm php7.4-opcache php7.4-xml php7.4-ctype php7.4-ftp php7.4-gd php7.4-json php7.4-posix php7.4-curl php7.4-dom php7.4-pdo php7.4-sockets php7.4-zip php7.4-mysql php7.4-mysqli php7.4-sqlite3 php7.4-bz2 php7.4-exif php7.4-phar php7.4-posix php7.4-calendar php7.4-iconv php7.4-imap php7.4-soap php7.4-xsl php7.4-ldap php7.4-bcmath php7.4-redis php7.4-memcache php7.4-memcached php7.4-imagick php7.4-intl php7.4-json php7.4-mysqli php7.4-readline php7.4-xmlrpc php7.4-xsl php7.4-mbstring php7.4-gmp php7.4-dev php7.4-tidy php7.4-xdebug
 
 RUN apt-get install -y php-symfony-class-loader php-pear phpqrcode php-php-gettext php-gettext php-geoip php-oauth php-mail
 
