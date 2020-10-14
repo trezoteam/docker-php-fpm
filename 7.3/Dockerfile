@@ -17,8 +17,9 @@ RUN apt-get install -y gcc make autoconf libc-dev pkg-config php7.3-dev libmcryp
     && echo "extension=mcrypt.so" > /etc/php/7.3/cli/conf.d/lzf.ini
 
 RUN pecl install pecl/lzf \
-    && echo "extension=lzf.so" > /etc/php/7.3/fpm/conf.d/lzf.ini \
-    && echo "extension=lzf.so" > /etc/php/7.3/cli/conf.d/lzf.ini
+    && cp /usr/lib/php/20190902/lzf.so /usr/lib/php/20180731/ \
+    && echo "extension=lzf.so" >> /etc/php/7.3/fpm/conf.d/lzf.ini \
+    && echo "extension=lzf.so" >> /etc/php/7.3/cli/conf.d/lzf.ini
 
 RUN rm /etc/php/7.3/fpm/pool.d/* \
     && mkdir -p /var/run/php-fpm \
