@@ -43,7 +43,7 @@ COPY entrypoint.sh /entrypoint.sh
 RUN cd /tmp \
 	&& curl -o ioncube.tar.gz http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz \
     && tar -xvvzf ioncube.tar.gz \
-    && mv ioncube/ioncube_loader_lin_7.4.so /usr/lib/php/20180731/ \
+    && mv ioncube/ioncube_loader_lin_7.4.so /usr/lib/php/20190902/ \
     && rm -Rf ioncube.tar.gz ioncube \
     && echo "zend_extension=ioncube_loader_lin_7.4.so" >> /etc/php/7.4/fpm/php.ini \
     && echo "zend_extension=ioncube_loader_lin_7.4.so" >> ./etc/php/7.4/cli/php.ini \
