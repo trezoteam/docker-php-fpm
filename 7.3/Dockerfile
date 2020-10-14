@@ -46,7 +46,7 @@ RUN cd /tmp \
     && mv ioncube/ioncube_loader_lin_7.3.so /usr/lib/php/20180731/ \
     && rm -Rf ioncube.tar.gz ioncube \
     && echo "zend_extension=ioncube_loader_lin_7.3.so" >> /etc/php/7.3/fpm/php.ini \
-    && echo "zend_extension=ioncube_loader_lin_7.3.so" >> ./etc/php/7.3/cli/php.ini \
+    && echo "zend_extension=ioncube_loader_lin_7.3.so" >> /etc/php/7.3/cli/php.ini \
     && service php7.3-fpm restart
 
 RUN useradd deploy -s /bin/bash -g www-data -u 2500
