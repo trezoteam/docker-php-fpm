@@ -10,8 +10,7 @@ RUN apt-get install -y php7.4 php7.4-common php7.4-cli php7.4-fpm php7.4-opcache
 RUN apt-get install -y php-symfony-class-loader php-pear phpqrcode php-php-gettext php-gettext php-geoip php-oauth php-mail
 
 RUN apt-get install -y php-dev libmcrypt-dev php-pear
-RUN pecl channel-update pecl.php.net
-RUN pecl install channel://pecl.php.net/mcrypt-1.0.2
+RUN pecl install mcrypt-1.0.3
 
 RUN apt-get install -y gcc make autoconf libc-dev pkg-config php7.4-dev libmcrypt-dev \
     && echo "extension=mcrypt.so" > /etc/php/7.4/fpm/conf.d/lzf.ini \
