@@ -10,7 +10,11 @@ RUN apt-get install -y php7.3 php7.3-common php7.3-cli php7.3-fpm php7.3-opcache
 RUN apt-get install -y php-symfony-class-loader php-pear phpqrcode php-php-gettext php-gettext php-geoip php-oauth php-mail php-xml 
 
 RUN apt-get install -y php-dev libmcrypt-dev php-pear
-RUN update-alternatives --set php /usr/bin/php7.3 && pecl channel-update pecl.php.net && pecl install mcrypt-1.0.2
+RUN update-alternatives --set php /usr/bin/php7.3 && \ 
+    update-alternatives --set phpize /usr/bin/phpize7.3 && \
+    update-alternatives --set php-config /usr/bin/php-config7.3 && \
+    pecl channel-update pecl.php.net && \
+    pecl install mcrypt-1.0.2
 
 RUN apt-get install -y gcc make autoconf libc-dev pkg-config php7.3-dev libmcrypt-dev \
     && echo "extension=mcrypt.so" > /etc/php/7.3/fpm/conf.d/lzf.ini \
