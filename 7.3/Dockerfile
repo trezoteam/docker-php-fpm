@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 
-RUN apt-get update && apt-get install -y wget curl ca-certificates apt-transport-https wget gnupg git \
+RUN apt-get update && apt-get install -y wget curl ca-certificates apt-transport-https wget unzip gnupg git \
     && wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add - \
     && echo "deb https://packages.sury.org/php/ buster main" | tee /etc/apt/sources.list.d/php.list \
     && apt-get update
